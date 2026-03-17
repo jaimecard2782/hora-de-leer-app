@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
+import hero from './assets/hero.png';
 
 function cn(...inputs) {
   return twMerge(clsx(inputs));
@@ -232,224 +233,234 @@ const App = () => {
 
       <main className="relative z-10 p-5">
         {view === 'home' && (
-          <div className="space-y-6">
-            {!userData.level ? (
-              <div className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-[#6C63FF] via-[#5A76FF] to-[#42A5FF] p-7 shadow-[0_24px_50px_rgba(93,90,255,0.28)] border border-white/30">
-                <div className="absolute -top-5 -right-2 opacity-20">
-                  <Sparkles className="w-24 h-24 text-white" />
-                </div>
-                <div className="absolute bottom-0 right-0 w-32 h-32 rounded-full bg-white/10 blur-2xl" />
+          <div>
+            <div className="mb-6">
+              <img
+                src={hero}
+                alt="Hora de Leer"
+                className="w-full rounded-3xl shadow-xl"
+              />
+            </div>
 
-                <div className="relative z-10">
-                  <div className="w-14 h-14 rounded-[1.4rem] bg-white/20 backdrop-blur-md flex items-center justify-center mb-4 border border-white/20">
-                    <Heart className="w-7 h-7 text-white fill-white/20" />
+            <div className="space-y-6">
+              {!userData.level ? (
+                <div className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-[#6C63FF] via-[#5A76FF] to-[#42A5FF] p-7 shadow-[0_24px_50px_rgba(93,90,255,0.28)] border border-white/30">
+                  <div className="absolute -top-5 -right-2 opacity-20">
+                    <Sparkles className="w-24 h-24 text-white" />
                   </div>
+                  <div className="absolute bottom-0 right-0 w-32 h-32 rounded-full bg-white/10 blur-2xl" />
 
-                  <h2 className="text-3xl font-black leading-tight text-white">
-                    ¿Por dónde empezamos?
-                  </h2>
-                  <p className="text-white/85 text-sm mt-2 mb-6 max-w-[250px]">
-                    Descubre el nivel ideal para acompañar a tu hijo con calma, juego y amor.
-                  </p>
+                  <div className="relative z-10">
+                    <div className="w-14 h-14 rounded-[1.4rem] bg-white/20 backdrop-blur-md flex items-center justify-center mb-4 border border-white/20">
+                      <Heart className="w-7 h-7 text-white fill-white/20" />
+                    </div>
 
-                  <button
-                    onClick={() => setView('quiz')}
-                    className="w-full bg-white text-[#5A56E9] py-4 rounded-[1.6rem] font-black text-xs uppercase tracking-[0.2em] shadow-[0_14px_28px_rgba(255,255,255,0.25)] border border-white transition-all active:scale-[0.98] hover:-translate-y-0.5 hover:shadow-[0_18px_32px_rgba(255,255,255,0.28)]"
-                  >
-                    Comenzar diagnóstico
-                  </button>
-                </div>
-              </div>
-            ) : (
-              <div className="bg-white/95 p-6 rounded-[2.4rem] shadow-[0_18px_40px_rgba(108,99,255,0.10)] border border-white">
-                <div className="flex items-center justify-between gap-4">
-                  <div className="space-y-1">
-                    <span className="text-[10px] font-black text-[#6C63FF] uppercase tracking-[0.25em]">
-                      Plan de hoy
-                    </span>
-                    <h2 className="text-xl font-black text-slate-800">
-                      {levels[userData.level].title}
+                    <h2 className="text-3xl font-black leading-tight text-white">
+                      ¿Por dónde empezamos?
                     </h2>
-                    <p className="text-[11px] font-bold text-slate-400">
-                      Cartas {levels[userData.level].cards} • {levels[userData.level].guide}
+                    <p className="text-white/85 text-sm mt-2 mb-6 max-w-[250px]">
+                      Descubre el nivel ideal para acompañar a tu hijo con calma, juego y amor.
                     </p>
+
+                    <button
+                      onClick={() => setView('quiz')}
+                      className="w-full bg-white text-[#5A56E9] py-4 rounded-[1.6rem] font-black text-xs uppercase tracking-[0.2em] shadow-[0_14px_28px_rgba(255,255,255,0.25)] border border-white transition-all active:scale-[0.98] hover:-translate-y-0.5 hover:shadow-[0_18px_32px_rgba(255,255,255,0.28)]"
+                    >
+                      Comenzar diagnóstico
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <div className="bg-white/95 p-6 rounded-[2.4rem] shadow-[0_18px_40px_rgba(108,99,255,0.10)] border border-white">
+                  <div className="flex items-center justify-between gap-4">
+                    <div className="space-y-1">
+                      <span className="text-[10px] font-black text-[#6C63FF] uppercase tracking-[0.25em]">
+                        Plan de hoy
+                      </span>
+                      <h2 className="text-xl font-black text-slate-800">
+                        {levels[userData.level].title}
+                      </h2>
+                      <p className="text-[11px] font-bold text-slate-400">
+                        Cartas {levels[userData.level].cards} • {levels[userData.level].guide}
+                      </p>
+                    </div>
+
+                    <button
+                      onClick={() => setView('quiz')}
+                      className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#F0EEFF] to-[#E7F3FF] text-[#6C63FF] flex items-center justify-center shadow-md transition-all active:scale-95 hover:-translate-y-0.5"
+                    >
+                      <RotateCcw className="w-5 h-5" />
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              <div className="bg-white/95 p-6 rounded-[2.4rem] shadow-[0_18px_40px_rgba(89,93,167,0.08)] border border-white">
+                <div className="flex items-center gap-2 mb-4">
+                  <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#C7C2FF] to-[#A7D8FF] flex items-center justify-center">
+                    <Trophy className="w-4 h-4 text-[#4E48D9]" />
+                  </div>
+                  <h3 className="text-xs font-black text-slate-500 uppercase tracking-[0.22em]">
+                    Progreso del niño
+                  </h3>
+                </div>
+
+                <div className="space-y-4">
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-sm font-black text-slate-600">Progreso de hoy</span>
+                      <span className="text-sm font-black text-[#5A56E9]">{progressPercent}%</span>
+                    </div>
+
+                    <div className="w-full h-4 bg-[#EEF2FF] rounded-full overflow-hidden shadow-inner">
+                      <div
+                        className="h-full bg-gradient-to-r from-[#6C63FF] via-[#4E8DFF] to-[#42D1C8] rounded-full transition-all duration-500"
+                        style={{ width: `${progressPercent}%` }}
+                      />
+                    </div>
                   </div>
 
-                  <button
-                    onClick={() => setView('quiz')}
-                    className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#F0EEFF] to-[#E7F3FF] text-[#6C63FF] flex items-center justify-center shadow-md transition-all active:scale-95 hover:-translate-y-0.5"
-                  >
-                    <RotateCcw className="w-5 h-5" />
-                  </button>
+                  <div className="grid grid-cols-3 gap-3 text-center">
+                    <div className="rounded-[1.7rem] p-4 bg-gradient-to-br from-[#F0EEFF] to-[#E7E8FF] shadow-sm border border-white">
+                      <p className="text-2xl font-black text-[#5246EA]">{userData.totalMinutesRead}</p>
+                      <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest mt-1">
+                        Minutos
+                      </p>
+                    </div>
+
+                    <div className="rounded-[1.7rem] p-4 bg-gradient-to-br from-[#FFF6D9] to-[#FFF0BD] shadow-sm border border-white">
+                      <p className="text-2xl font-black text-[#D88700]">{userData.totalCompletedTasks}</p>
+                      <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest mt-1">
+                        Tareas
+                      </p>
+                    </div>
+
+                    <div className="rounded-[1.7rem] p-4 bg-gradient-to-br from-[#E6F8EA] to-[#D6F3DE] shadow-sm border border-white">
+                      <p className="text-2xl font-black text-[#2DA16C]">{userData.streak}</p>
+                      <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest mt-1">
+                        Racha
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
-            )}
 
-            <div className="bg-white/95 p-6 rounded-[2.4rem] shadow-[0_18px_40px_rgba(89,93,167,0.08)] border border-white">
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#C7C2FF] to-[#A7D8FF] flex items-center justify-center">
-                  <Trophy className="w-4 h-4 text-[#4E48D9]" />
+              <div className="bg-white/95 p-7 rounded-[2.4rem] shadow-[0_18px_40px_rgba(89,93,167,0.08)] border border-white space-y-5">
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#FFD88C] to-[#FFB86B] flex items-center justify-center">
+                    <CheckSquare className="w-4 h-4 text-white" />
+                  </div>
+                  <h3 className="text-xs font-black text-slate-500 uppercase tracking-[0.22em]">
+                    Metas de hoy
+                  </h3>
                 </div>
-                <h3 className="text-xs font-black text-slate-500 uppercase tracking-[0.22em]">
-                  Progreso del niño
-                </h3>
+
+                <div className="space-y-3">
+                  {userData.dailyChecklist.map((item) => (
+                    <button
+                      key={item.id}
+                      onClick={() => toggleCheckItem(item.id)}
+                      className={cn(
+                        'w-full flex items-center justify-between p-4 rounded-[1.5rem] border transition-all active:scale-[0.985] hover:-translate-y-0.5',
+                        item.completed
+                          ? 'bg-gradient-to-r from-[#EAFBF0] to-[#F5FFF8] border-[#CFF0DA] shadow-sm'
+                          : 'bg-white border-slate-100 shadow-sm hover:shadow-md'
+                      )}
+                    >
+                      <div className="flex items-center gap-3 text-left">
+                        <div
+                          className={cn(
+                            'w-7 h-7 rounded-xl flex items-center justify-center transition-all',
+                            item.completed
+                              ? 'bg-gradient-to-br from-[#39B86D] to-[#61D38E] text-white shadow-md'
+                              : 'border-2 border-[#E6E9F3] bg-[#FAFBFF]'
+                          )}
+                        >
+                          {item.completed && <CheckCircle2 className="w-4 h-4" />}
+                        </div>
+
+                        <span
+                          className={cn(
+                            'text-sm font-black',
+                            item.completed
+                              ? 'text-[#2E8C5A] opacity-70 line-through'
+                              : 'text-slate-700'
+                          )}
+                        >
+                          {item.text}
+                        </span>
+                      </div>
+
+                      <div
+                        className={cn(
+                          'text-[10px] font-black px-3 py-2 rounded-full shadow-sm',
+                          item.completed
+                            ? 'bg-[#DDF6E5] text-[#2E8C5A]'
+                            : 'bg-gradient-to-r from-[#FFF4C8] to-[#FFE79A] text-[#C48800]'
+                        )}
+                      >
+                        {item.completed ? 'Ganado' : `+${item.value} ⭐`}
+                      </div>
+                    </button>
+                  ))}
+                </div>
               </div>
 
               <div className="space-y-4">
-                <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm font-black text-slate-600">Progreso de hoy</span>
-                    <span className="text-sm font-black text-[#5A56E9]">{progressPercent}%</span>
-                  </div>
-
-                  <div className="w-full h-4 bg-[#EEF2FF] rounded-full overflow-hidden shadow-inner">
-                    <div
-                      className="h-full bg-gradient-to-r from-[#6C63FF] via-[#4E8DFF] to-[#42D1C8] rounded-full transition-all duration-500"
-                      style={{ width: `${progressPercent}%` }}
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-3 gap-3 text-center">
-                  <div className="rounded-[1.7rem] p-4 bg-gradient-to-br from-[#F0EEFF] to-[#E7E8FF] shadow-sm border border-white">
-                    <p className="text-2xl font-black text-[#5246EA]">{userData.totalMinutesRead}</p>
-                    <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest mt-1">
-                      Minutos
-                    </p>
-                  </div>
-
-                  <div className="rounded-[1.7rem] p-4 bg-gradient-to-br from-[#FFF6D9] to-[#FFF0BD] shadow-sm border border-white">
-                    <p className="text-2xl font-black text-[#D88700]">{userData.totalCompletedTasks}</p>
-                    <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest mt-1">
-                      Tareas
-                    </p>
-                  </div>
-
-                  <div className="rounded-[1.7rem] p-4 bg-gradient-to-br from-[#E6F8EA] to-[#D6F3DE] shadow-sm border border-white">
-                    <p className="text-2xl font-black text-[#2DA16C]">{userData.streak}</p>
-                    <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest mt-1">
-                      Racha
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white/95 p-7 rounded-[2.4rem] shadow-[0_18px_40px_rgba(89,93,167,0.08)] border border-white space-y-5">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#FFD88C] to-[#FFB86B] flex items-center justify-center">
-                  <CheckSquare className="w-4 h-4 text-white" />
-                </div>
-                <h3 className="text-xs font-black text-slate-500 uppercase tracking-[0.22em]">
-                  Metas de hoy
+                <h3 className="text-xs font-black text-slate-500 uppercase tracking-[0.22em] px-2">
+                  Plan de lectura express
                 </h3>
-              </div>
 
-              <div className="space-y-3">
-                {userData.dailyChecklist.map((item) => (
+                <div className="grid grid-cols-3 gap-3">
                   <button
-                    key={item.id}
-                    onClick={() => toggleCheckItem(item.id)}
-                    className={cn(
-                      'w-full flex items-center justify-between p-4 rounded-[1.5rem] border transition-all active:scale-[0.985] hover:-translate-y-0.5',
-                      item.completed
-                        ? 'bg-gradient-to-r from-[#EAFBF0] to-[#F5FFF8] border-[#CFF0DA] shadow-sm'
-                        : 'bg-white border-slate-100 shadow-sm hover:shadow-md'
-                    )}
+                    onClick={() => startSession(5)}
+                    className="rounded-[2rem] p-4 text-white shadow-[0_18px_32px_rgba(108,99,255,0.24)] bg-gradient-to-br from-[#6C63FF] to-[#4C9BFF] transition-all active:scale-95 hover:-translate-y-1"
                   >
-                    <div className="flex items-center gap-3 text-left">
-                      <div
-                        className={cn(
-                          'w-7 h-7 rounded-xl flex items-center justify-center transition-all',
-                          item.completed
-                            ? 'bg-gradient-to-br from-[#39B86D] to-[#61D38E] text-white shadow-md'
-                            : 'border-2 border-[#E6E9F3] bg-[#FAFBFF]'
-                        )}
-                      >
-                        {item.completed && <CheckCircle2 className="w-4 h-4" />}
-                      </div>
-
-                      <span
-                        className={cn(
-                          'text-sm font-black',
-                          item.completed
-                            ? 'text-[#2E8C5A] opacity-70 line-through'
-                            : 'text-slate-700'
-                        )}
-                      >
-                        {item.text}
-                      </span>
-                    </div>
-
-                    <div
-                      className={cn(
-                        'text-[10px] font-black px-3 py-2 rounded-full shadow-sm',
-                        item.completed
-                          ? 'bg-[#DDF6E5] text-[#2E8C5A]'
-                          : 'bg-gradient-to-r from-[#FFF4C8] to-[#FFE79A] text-[#C48800]'
-                      )}
-                    >
-                      {item.completed ? 'Ganado' : `+${item.value} ⭐`}
-                    </div>
+                    <Timer className="w-5 h-5 mb-2 opacity-80 mx-auto" />
+                    <p className="text-xs font-black uppercase">5 min</p>
+                    <p className="text-[10px] font-bold text-white/85 mt-1">+15 ⭐</p>
                   </button>
-                ))}
-              </div>
-            </div>
 
-            <div className="space-y-4">
-              <h3 className="text-xs font-black text-slate-500 uppercase tracking-[0.22em] px-2">
-                Plan de lectura express
-              </h3>
+                  <button
+                    onClick={() => startSession(10)}
+                    className="rounded-[2rem] p-4 text-white shadow-[0_18px_32px_rgba(255,170,70,0.24)] bg-gradient-to-br from-[#FFB74D] to-[#FF8B5E] transition-all active:scale-95 hover:-translate-y-1"
+                  >
+                    <Timer className="w-5 h-5 mb-2 opacity-80 mx-auto" />
+                    <p className="text-xs font-black uppercase">10 min</p>
+                    <p className="text-[10px] font-bold text-white/85 mt-1">+15 ⭐</p>
+                  </button>
 
-              <div className="grid grid-cols-3 gap-3">
-                <button
-                  onClick={() => startSession(5)}
-                  className="rounded-[2rem] p-4 text-white shadow-[0_18px_32px_rgba(108,99,255,0.24)] bg-gradient-to-br from-[#6C63FF] to-[#4C9BFF] transition-all active:scale-95 hover:-translate-y-1"
-                >
-                  <Timer className="w-5 h-5 mb-2 opacity-80 mx-auto" />
-                  <p className="text-xs font-black uppercase">5 min</p>
-                  <p className="text-[10px] font-bold text-white/85 mt-1">+15 ⭐</p>
-                </button>
-
-                <button
-                  onClick={() => startSession(10)}
-                  className="rounded-[2rem] p-4 text-white shadow-[0_18px_32px_rgba(255,170,70,0.24)] bg-gradient-to-br from-[#FFB74D] to-[#FF8B5E] transition-all active:scale-95 hover:-translate-y-1"
-                >
-                  <Timer className="w-5 h-5 mb-2 opacity-80 mx-auto" />
-                  <p className="text-xs font-black uppercase">10 min</p>
-                  <p className="text-[10px] font-bold text-white/85 mt-1">+15 ⭐</p>
-                </button>
-
-                <button
-                  onClick={() => startSession(15)}
-                  className="rounded-[2rem] p-4 text-white shadow-[0_18px_32px_rgba(60,190,150,0.24)] bg-gradient-to-br from-[#2FCF98] to-[#17A7B8] transition-all active:scale-95 hover:-translate-y-1"
-                >
-                  <Timer className="w-5 h-5 mb-2 opacity-80 mx-auto" />
-                  <p className="text-xs font-black uppercase">15 min</p>
-                  <p className="text-[10px] font-bold text-white/85 mt-1">+15 ⭐</p>
-                </button>
-              </div>
-            </div>
-
-            <button
-              onClick={() => setView('sos')}
-              className="w-full rounded-[2rem] bg-gradient-to-r from-[#FFF0F1] to-[#FFE5EA] border border-[#FFD6DE] p-5 flex items-center justify-between transition-all active:scale-[0.985] hover:-translate-y-0.5 shadow-sm"
-            >
-              <div className="flex items-center gap-4 text-left">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#FF7D95] to-[#FF5E7D] text-white flex items-center justify-center shadow-[0_12px_24px_rgba(255,105,135,0.24)]">
-                  <AlertCircle className="w-6 h-6" />
-                </div>
-
-                <div>
-                  <p className="text-base font-black text-[#A73458] leading-none mb-1">SOS Calma</p>
-                  <p className="text-[11px] font-bold text-[#E17693] uppercase tracking-wider">
-                    Ayuda rápida cuando se frustra
-                  </p>
+                  <button
+                    onClick={() => startSession(15)}
+                    className="rounded-[2rem] p-4 text-white shadow-[0_18px_32px_rgba(60,190,150,0.24)] bg-gradient-to-br from-[#2FCF98] to-[#17A7B8] transition-all active:scale-95 hover:-translate-y-1"
+                  >
+                    <Timer className="w-5 h-5 mb-2 opacity-80 mx-auto" />
+                    <p className="text-xs font-black uppercase">15 min</p>
+                    <p className="text-[10px] font-bold text-white/85 mt-1">+15 ⭐</p>
+                  </button>
                 </div>
               </div>
 
-              <ChevronRight className="text-[#E17693] w-5 h-5" />
-            </button>
+              <button
+                onClick={() => setView('sos')}
+                className="w-full rounded-[2rem] bg-gradient-to-r from-[#FFF0F1] to-[#FFE5EA] border border-[#FFD6DE] p-5 flex items-center justify-between transition-all active:scale-[0.985] hover:-translate-y-0.5 shadow-sm"
+              >
+                <div className="flex items-center gap-4 text-left">
+                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#FF7D95] to-[#FF5E7D] text-white flex items-center justify-center shadow-[0_12px_24px_rgba(255,105,135,0.24)]">
+                    <AlertCircle className="w-6 h-6" />
+                  </div>
+
+                  <div>
+                    <p className="text-base font-black text-[#A73458] leading-none mb-1">SOS Calma</p>
+                    <p className="text-[11px] font-bold text-[#E17693] uppercase tracking-wider">
+                      Ayuda rápida cuando se frustra
+                    </p>
+                  </div>
+                </div>
+
+                <ChevronRight className="text-[#E17693] w-5 h-5" />
+              </button>
+            </div>
           </div>
         )}
 
