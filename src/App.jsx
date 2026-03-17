@@ -17,7 +17,7 @@ import {
 } from 'lucide-react';
 import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
-import hero from './assets/hero.png';
+
 
 function cn(...inputs) {
   return twMerge(clsx(inputs));
@@ -236,7 +236,7 @@ const App = () => {
           <div>
             <div className="mb-6">
               <img
-                src={hero}
+                src="/hero.png"
                 alt="Hora de Leer"
                 className="w-full rounded-3xl shadow-xl"
               />
