@@ -1,12 +1,11 @@
 {
   "name": "Hora de Leer",
-  "short_name": "Hora de Leer",
-  "description": "Aplicación educativa para acompañar el progreso de lectura de los niños.",
-  "theme_color": "#4f46e5",
-  "background_color": "#F8FAFF",
-  "display": "standalone",
-  "orientation": "portrait",
+  "short_name": "HoraLeer",
+  "description": "Aplicación para aprender a leer jugando",
   "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4F46E5",
   "icons": [
     {
       "src": "/pwa-192.png",
@@ -14,7 +13,7 @@
       "type": "image/png"
     },
     {
-      "src": "/pwa-512.png",
+      "src": "/pwa-192.png",
       "sizes": "512x512",
       "type": "image/png"
     }
